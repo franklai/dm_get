@@ -4,3 +4,5 @@ glob:dist/*
 glob:*.jpg
 glob:*.pyc
 glob:note/*
+glob:*.swp
+glob:test/*

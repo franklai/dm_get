@@ -9,7 +9,7 @@ import urlparse
 site_index = 'dream'
 site_keyword = 'dream-mall'
 site_url = 'http://www.dream-mall.com.tw/'
-test_url = 'http://www.dream-mall.com.tw/Ecatalog/090903index.asp'
+test_url = 'http://www.dream-mall.com.tw/ecatalog/newindex.asp'
 
 def get_first_match(pattern, string):
     result = ''
@@ -32,18 +32,21 @@ def get_title(url, html):
     title = get_first_match(pattern, html) + ' - '
     logging.debug(title.encode('big5'))
 
-    pattern = 'Ecatalog/([0-9]+)'
-    title += get_first_match(pattern, url)
+    pattern = '/EDM/([0-9]+)/'
+    title += get_first_match(pattern, html)
     logging.debug(title.encode('big5'))
 
     return title.strip()
 
 def get_jpgs(url, html):
-    pattern = u'="_blank" href="([^"]+)"'
+    pattern = u'class="option" href="([^"]+)" target="_blank"'
     jpgs = re.compile(pattern).findall(html)
     logging.debug('jpgs:' + repr(jpgs))
 
-    full_jpgs = [urlparse.urljoin(url, jpg) for jpg in jpgs]
+    o = urlparse.urlparse(url)
+    urlPrefix = 'http://%s' % (o.netloc)
+    
+    full_jpgs = [urlparse.urljoin(urlPrefix, jpg) for jpg in jpgs]
     logging.debug('full_jpgs:' + repr(full_jpgs))
 
     return full_jpgs
@@ -88,7 +91,6 @@ def download_jpgs(title, jpgs):
         task.join()
 
         print('finish(%d/%d): %s' % (index, length, jpg,))
-
 
 def downloader(url):
     html = get_content_by_url(url)
