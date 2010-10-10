@@ -16,8 +16,10 @@
 # http://www.dream-mall.com.tw/ecatalog/newindex.asp
 #
 # Hankyu Kaohsiung
-http://www.uni-hankyu.com.tw/kaohsiung/onlineDM_1.asp?ID=000113
+# http://www.uni-hankyu.com.tw/kaohsiung/onlineDM_1.asp?ID=000113
 #
 # Hankyu Taipei
 # http://www.uni-hankyu.com.tw/taipei/upload/dm/dm_no1.html
-
+#
+# FE21'
+http://www.feds.com.tw/ebook/index.asp?ParentSNo=401
