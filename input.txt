@@ -6,8 +6,8 @@
 # http://photo.sogo.com.tw/newsogo/04/flippingbook/100826_1011AutumnWinter/index5.html
 #
 # Han Shin
-# http://www.hanshinarena.com.tw/03-2/n_list01.php?m_id=136
-# http://www.hanshin.com.tw/03-2/n_list01.php?m_id=155
+http://www.hanshinarena.com.tw/DM/?m_id=39
+http://www.hanshin.com.tw/DM/?m_id=37
 #
 # PZ Peace
 # http://www.pz-peace.com.tw/onsale.asp
@@ -22,4 +22,4 @@
 # http://www.uni-hankyu.com.tw/taipei/upload/dm/dm_no1.html
 #
 # FE21'
-http://www.feds.com.tw/ebook/index.asp?ParentSNo=401
+# http://www.feds.com.tw/ebook/index.asp?ParentSNo=401
