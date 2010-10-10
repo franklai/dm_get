@@ -23,11 +23,27 @@ def get_swf_link(url, html):
     return swfLink
 
 def get_title(url):
+    dmMainUrl = 'http://www.uni-hankyu.com.tw/taipei/dm.asp'
+    html = common.get_content_by_url(dmMainUrl)
+    html = html.decode('utf-8')
+
+    pattern = u'<title>([^<]+)</title>'
+    department = common.get_first_match(pattern, html)
+
     pos = url.rfind('/')
+    urlFile = url[pos + 1]
 
-    title = 'uni-hankyu-' + url[pos + 1:] 
+    urlPos = html.find(urlFile)
+    titlePos = html.find('<strong>', urlPos)
+    if titlePos > 0:
+        endPos = html.find('</strong>', titlePos)
+        matchedTitle = html[titlePos + len('<strong>'): endPos]
 
-    logging.debug('title: %s' % (title))
+        title = '%s - %s' % (department, matchedTitle)
+    else:
+        title = '%s - %s' % (department, urlFile)
+
+    logging.debug('title: %s' % (title.encode('big5')))
 
     return title
 
