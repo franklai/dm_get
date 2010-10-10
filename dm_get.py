@@ -1,9 +1,13 @@
 # -*- coding: utf8 -*-
 import logging
 
-sites = ['skm', 'sogo', 'hanshin', 'pz', 'feds', 'hankyu', 'dream']
+sites = [
+    'dream', 'feds', 
+    'hankyu_kaohsiung', 'hankyu_taipei', 
+    'hanshin', 'pz', 'skm', 'sogo', 
+]
 def get_module_list():
-	return ['site_' + site for site in sites]
+    return ['site_' + site for site in sites]
 
 modules = [__import__(x) for x in get_module_list()]
 site_dict = {}

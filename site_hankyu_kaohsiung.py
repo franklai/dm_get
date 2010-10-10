@@ -6,11 +6,10 @@ import urllib
 import urllib2
 import urlparse
 
-site_index = 'hankyu'
-site_keyword = 'uni-hankyu'
+site_index = 'hankyu_kaohsiung'
+site_keyword = 'uni-hankyu.com.tw/kaohsiung'
 site_url = 'http://www.uni-hankyu.com.tw/'
-test_url = 'http://www.uni-hankyu.com.tw/onlineDM_1.asp?ID=000085'
-
+test_url = 'http://www.uni-hankyu.com.tw/kaohsiung/onlineDM_1.asp?ID=000113'
 
 def get_first_match(pattern, string):
     result = ''
@@ -48,12 +47,15 @@ def get_title(url, html):
     return title.strip()
 
 def get_jpgs(url, html):
+    logging.debug('url: %s, ' % (url,))
+
     pattern = u'maintain/thumbnail.aspx\?FileName=([^&]+)'
     jpgs = re.compile(pattern).findall(html)
     logging.debug('jpgs:' + repr(jpgs))
 
     # http://www.uni-hankyu.com.tw/maintain/Upload/DM/000085/P03.jpg
-    full_jpgs = [urlparse.urljoin(url, '/maintain/%s' % (jpg,)) for jpg in jpgs]
+    # http://www.uni-hankyu.com.tw/kaohsiung/maintain/Upload/DM/000113/01.jpg
+    full_jpgs = [urlparse.urljoin(url, '/kaohsiung/maintain/%s' % (jpg,)) for jpg in jpgs]
     logging.debug('full_jpgs:' + repr(full_jpgs))
 
     return full_jpgs

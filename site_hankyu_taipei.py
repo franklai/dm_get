@@ -5,7 +5,7 @@ import struct
 
 import common
 
-site_index = 'hankyu'
+site_index = 'hankyu_taipei'
 site_keyword = 'uni-hankyu.com.tw/taipei'
 site_url = 'http://www.uni-hankyu.com.tw/taipei/'
 test_url = 'http://www.uni-hankyu.com.tw/taipei/upload/dm/dm_no1.html'
