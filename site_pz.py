@@ -1,3 +1,4 @@
+import logging
 import re
 import os
 from threading import Thread
@@ -8,7 +9,7 @@ import urlparse
 site_index = 'pz'
 site_keyword = 'pz-peace'
 site_url = 'http://www.pz-peace.com.tw/'
-test_url = 'http://www.pz-peace.com.tw/'
+test_url = 'http://www.pz-peace.com.tw/onsale.asp'
 
 def get_first_match(pattern, string):
     result = ''
@@ -26,16 +27,12 @@ def get_content_by_url(url):
     return html
 
 def get_title(url):
-    # use directory as part of title
-    pattern = '/([^/]+)/[^/]+$'
-    title = get_first_match(pattern, url)
-
     # get html to parse <title>
     html = get_content_by_url(url)
     html = html.decode('big5')
 
     pattern = u'<title>([^<]*)</title>'
-    title += get_first_match(pattern, html)
+    title = get_first_match(pattern, html)
 
     return title
 
@@ -53,6 +50,7 @@ def get_iframes(url):
     return iframes
 
 def get_jpgs(url):
+    logging.debug('get jpgs from url: %s' % (url))
     html = get_content_by_url(url)
 
     pattern = 'img src="([^"]+)"'
@@ -108,30 +106,18 @@ def download_jpgs(title, jpgs):
         print('finish(%d/%d): %s' % (index, length, jpg,))
 
 def downloader(url):
+    title = get_title(url)
     iframes = get_iframes(url)
 
     for iframe in iframes:
         jpgs = get_jpgs(iframe)
 
-        download_jpgs('pz', jpgs)
+        download_jpgs(title, jpgs)
 
 def main():
-    input = 'input_pz.txt'
-
-    for line in open(input, 'rb'):
-        line = line.strip()
-
-        if len(line) == 0:
-            # skip blank line
-            continue
-
-        if line[0] == '#':
-            # skip comment
-            continue
-
-        downloader(line)
+    downloader(test_url)
 
 
 if __name__ == '__main__':
-#     print urlparse.urljoin('http://asdfas.erwe/asdf/th.asp?d', '../oh/oh.htm')
+    logging.basicConfig(level=logging.DEBUG)
     main()
