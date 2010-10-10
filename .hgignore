@@ -1,0 +1,6 @@
+glob:*.7z
+glob:build/*
+glob:dist/*
+glob:*.jpg
+glob:*.pyc
+glob:note/*
