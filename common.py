@@ -1,5 +1,10 @@
+import httplib
 import re
+from threading import Thread
+import urllib
 import urllib2
+import urlparse
+
 import zlib
 
 def get_first_match(pattern, string):
@@ -17,6 +22,14 @@ def get_content_by_url(url):
 
     return html
 
+def is_url_ok(url):
+    o = urlparse.urlparse(url)
+
+    conn = httplib.HTTPConnection(o.netloc)
+    conn.request('HEAD', o.path + o.params)
+    resp = conn.getresponse()
+    return resp.status == 200
+
 def cws2fws(bytes):
     if bytes[0:3] == 'CWS':
         compressedStr = bytes[8:]
@@ -26,3 +39,12 @@ def cws2fws(bytes):
     else:
         return bytes
     
+class DownloadFile(Thread):
+    def __init__(self, url, path):
+        Thread.__init__(self)
+        self.url = url
+        self.path = path
+
+    def run(self):
+        urllib.urlretrieve(self.url, self.path)
+

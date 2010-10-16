@@ -2,6 +2,7 @@ import logging
 import os
 import re
 import struct
+import urlparse
 
 import common
 
@@ -53,48 +54,82 @@ def get_swf(swfLink):
 
     return bytes
 
-def extract_swf_to_jpgs(title, swf):
+def get_jpgs(swfLink):
+    index = 30
+    step = stepMax = 16
+    forward = True
+
+    while abs(step) > 0:
+        jpgUrl = urlparse.urljoin(swfLink, '%02d.jpg' % (index))
+        logging.debug('test url is %s' % (jpgUrl, ))
+
+        if common.is_url_ok(jpgUrl):
+            if step != stepMax:
+                step /= 2
+            forward = True
+        else:
+            step /= 2
+            forward = False
+
+        if forward:
+            index += step
+        else:
+            index -= step
+
+    lastIndex = index
+    if not forward:
+        lastIndex -= 1
+
+    logging.debug('last index is %d' % (lastIndex))
+
+    jpgs = [urlparse.urljoin(swfLink, '%02d.jpg' % (x, )) for x in range(lastIndex + 1)] 
+    return jpgs
+
+def download_jpgs(title, jpgs):
     cwd = os.getcwdu()
+
     path_prefix = os.path.join(cwd, title)
+
     if not os.path.exists(path_prefix):
         # mkdir if directory not exists
         os.makedirs(path_prefix)
 
-    # get decompressed swf content
-    bytes = common.cws2fws(swf)
+    length = len(jpgs)
+    index = 0
+    print('Start to downloading %s (total: %d)' % (title.encode('big5'), length))
 
-    print('Start extract jpeg from swf')
+    for jpg in jpgs:
+        index += 1
 
-    # standard JFIF file start with FF D8 FF E0
-    mark = struct.pack('BBBB', 0xFF, 0xD8, 0xFF, 0xE0)
-
-    count = 1
-    pos = bytes.find(mark)
-    while pos > 0:
-        lengthBytes = bytes[pos - 6: pos - 2]
-        length = struct.unpack('<I', lengthBytes)[0]
-
-        end = pos + length - 2
-
-        filename = '%03d.jpg' % (count)
+        filename = jpg[jpg.rfind('/') + 1:]
 
         path = os.path.join(path_prefix, filename)
-        open(path, 'wb').write(bytes[pos: end])
 
-        pos = bytes.find(mark, end)
-        count += 1
+        if os.path.exists(path) and os.path.getsize(path) > 0:
+            print('(%d/%d) skip %s, already exists' % (index, length, path,))
+            continue
+
+        task = common.DownloadFile(jpg, path)
+        task.start()
+
+        # wait until the thread finish
+        task.join()
+
+        print('finish(%d/%d): %s' % (index, length, jpg,))
 
 def downloader(url):
     html = common.get_content_by_url(url)
     html = html.decode('big5')
     swfLink = get_swf_link(url, html)
     title = get_title(url)
-    swf = get_swf(swfLink)
 
-    extract_swf_to_jpgs(title, swf)
+    jpgs = get_jpgs(swfLink)
+
+    download_jpgs(title, jpgs)
 
 def main():
     downloader(test_url)
+
 
 if __name__ == '__main__':
     logging.basicConfig(level=logging.DEBUG)
