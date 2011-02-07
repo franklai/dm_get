@@ -1,7 +1,5 @@
 # -*- coding: utf8 -*-
 import logging
-import os
-import re
 import urlparse
 
 import common
@@ -15,8 +13,9 @@ def get_title(html):
     pattern = 'flippingBook.settings.printTitle = "([^"]+)"'
 
     title = common.get_first_match(pattern, html)
+    title = "city'super %s" % (title,)
 
-    logging.debug('title: %s' % (title))
+    logging.debug('title: %s' % (title.encode('big5')))
 
     return title
 
@@ -35,7 +34,7 @@ def get_pages(html):
 
     pagesText = html[posStart:posEnd]
     pattern = "'([^']+\.jpg)'"
-    pages = re.findall(pattern, pagesText)
+    pages = common.get_all_matched(pattern, pagesText)
     logging.debug('found pages: %s' % (', '.join(pages)))
 
     return pages
@@ -53,41 +52,10 @@ def get_jpgs(url, html):
 
     urlPrefix = urlparse.urljoin(url, zoomPath)
     jpgs = [urlparse.urljoin(urlPrefix, img) for img in imgs] 
-    logging.debug('full jpeg path: %s' % (', '.join(jpgs)))
+    logging.debug('full jpeg path: \n%s' % ('\n'.join(jpgs)))
 
     return jpgs
 
-def download_jpgs(title, jpgs):
-    cwd = os.getcwdu()
-
-    path_prefix = os.path.join(cwd, title)
-
-    if not os.path.exists(path_prefix):
-        # mkdir if directory not exists
-        os.makedirs(path_prefix)
-
-    length = len(jpgs)
-    index = 0
-    print('Start to downloading %s (total: %d)' % (title.encode('big5'), length))
-
-    for jpg in jpgs:
-        index += 1
-
-        filename = jpg[jpg.rfind('/') + 1:]
-
-        path = os.path.join(path_prefix, filename)
-
-        if os.path.exists(path) and os.path.getsize(path) > 0:
-            print('(%d/%d) skip %s, already exists' % (index, length, path,))
-            continue
-
-        task = common.DownloadFile(jpg, path)
-        task.start()
-
-        # wait until the thread finish
-        task.join()
-
-        print('finish(%d/%d): %s' % (index, length, jpg,))
 
 def downloader(url):
     html = common.get_content_by_url(url)
@@ -96,7 +64,7 @@ def downloader(url):
     title = get_title(html)
     jpgs = get_jpgs(url, html)
 
-    download_jpgs(title, jpgs)
+    common.download_jpgs(title, jpgs)
 
 def main():
     downloader(test_url)

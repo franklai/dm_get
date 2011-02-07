@@ -1,28 +1,28 @@
 ## put dm link below, and run the program, you can get large jpeg file
 # Shin Kong Mitsukoshi
-# http://www.skm.com.tw/edm/str100/201009_year/index.html
+http://www.skm.com.tw/edm/str100/2011_ChinesesNewYear_part2/index.html
 #
 # SOGO
-# http://photo.sogo.com.tw/newsogo/04/flippingbook/100826_1011AutumnWinter/index5.html
+http://www.sogo.com.tw/www/flippingbook/index.asp?id=189&backflag=1
 #
 # Han Shin
-# http://www.hanshinarena.com.tw/DM/?m_id=39
-# http://www.hanshin.com.tw/DM/?m_id=37
+http://www.hanshinarena.com.tw/DM/?m_id=48
+http://www.hanshin.com.tw/DM/?m_id=48
 #
 # PZ Peace
-# http://www.pz-peace.com.tw/onsale.asp
+http://www.pz-peace.com.tw/onsale.asp
 #
 # Dream Mall
-# http://www.dream-mall.com.tw/ecatalog/newindex.asp
+http://www.dream-mall.com.tw/ecatalog/newindex.asp
 #
 # Hankyu Kaohsiung
-# http://www.uni-hankyu.com.tw/kaohsiung/onlineDM_1.asp?ID=000113
+http://www.uni-hankyu.com.tw/kaohsiung/onlineDM_1.asp?ID=000122
 #
 # Hankyu Taipei
-# http://www.uni-hankyu.com.tw/taipei/upload/dm/dm_no1.html
+http://www.uni-hankyu.com.tw/taipei/upload/dm/dm_no10.html
 #
 # FE21'
-# http://www.feds.com.tw/ebook/index.asp?ParentSNo=401
+http://www.feds.com.tw/ebook/index.asp?ParentSNo=471
 #
 # City Super
 http://www.citysuper.com.tw/flippingBook/edmDisplay.asp?lgid=1&euid=801421E5-E642-4314-8924-D5EF0F3A1830
