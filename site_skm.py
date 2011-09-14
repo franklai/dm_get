@@ -7,7 +7,7 @@ import common
 site_index = 'skm'
 site_keyword = 'skm'
 site_url = 'http://www.skm.com.tw/'
-test_url = 'http://www.skm.com.tw/edm/str120/2009_1005_PHOTO/index.html'
+test_url = 'http://www.skm.com.tw/edm/str100/2011_newchange/index.html'
 
 def get_title(url, html):
     # use directory as part of title

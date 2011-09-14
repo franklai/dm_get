@@ -9,7 +9,7 @@ import urlparse
 site_index = 'hankyu_kaohsiung'
 site_keyword = 'uni-hankyu.com.tw/kaohsiung'
 site_url = 'http://www.uni-hankyu.com.tw/'
-test_url = 'http://www.uni-hankyu.com.tw/kaohsiung/onlineDM_1.asp?ID=000113'
+test_url = 'http://www.uni-hankyu.com.tw/kaohsiung/onlineDM_1.asp?ID=000141'
 
 def get_first_match(pattern, string):
     result = ''

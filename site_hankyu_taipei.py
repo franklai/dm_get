@@ -1,7 +1,6 @@
 import logging
 import os
 import re
-import struct
 import urlparse
 
 import common

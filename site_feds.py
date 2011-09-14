@@ -9,7 +9,7 @@ import urlparse
 site_index = 'feds'
 site_keyword = 'feds'
 site_url = 'http://www.feds.com.tw/'
-test_url = 'http://www.feds.com.tw/ebook/index.asp?ParentSNo=401'
+test_url = 'http://www.feds.com.tw/ebook/index.asp?ParentSNo=592'
 
 
 def get_first_match(pattern, string):
