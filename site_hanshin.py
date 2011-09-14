@@ -10,7 +10,8 @@ import common
 site_index = 'hanshin'
 site_keyword = 'hanshin'
 site_url = 'http://www.hanshinarena.com.tw/'
-test_url = 'http://www.hanshinarena.com.tw/DM/?m_id=39'
+# test_url = 'http://www.hanshinarena.com.tw/DM/?m_id=69'
+test_url = 'http://www.hanshin.com.tw/DM/?m_id=70'
 
 def get_id(url):
     pattern = u'm_id=([0-9]+)'
