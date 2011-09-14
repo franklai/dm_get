@@ -3,7 +3,7 @@
 http://www.skm.com.tw/edm/str100/2011_ChinesesNewYear_part2/index.html
 #
 # SOGO
-http://www.sogo.com.tw/www/flippingbook/index.asp?id=189&backflag=1
+http://www.sogo.com.tw/www/flippingbook/index.asp?id=434&BranchIds=2&backflag=1
 #
 # Han Shin
 http://www.hanshinarena.com.tw/DM/?m_id=48
