@@ -8,7 +8,7 @@ import common
 site_index = 'sogo'
 site_keyword = 'sogo'
 site_url = 'http://www.sogo.com.tw/'
-test_url = 'http://www.sogo.com.tw/www/flippingbook/index.asp?id=427&BranchIds=1&backflag=1'
+test_url = 'http://www.sogo.com.tw/www/flippingbook/index.asp?id=742&BranchIds=8'
 # test_url = 'http://www.sogo.com.tw/www/flippingbook/index2.asp?id=432&sp=&flag=&BranchIds=2'
 
 

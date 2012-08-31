@@ -1,9 +1,10 @@
 ## put dm link below, and run the program, you can get large jpeg file
 # Shin Kong Mitsukoshi
-http://www.skm.com.tw/edm/str100/2011_newchange/index.html
+http://www.skm.com.tw/edm/?st=str350&dm=20120824_AUTUMN
+http://www.skm.com.tw/edm/str120/2012_0830_autumn/index.html
 #
 # SOGO
-http://www.sogo.com.tw/www/flippingbook/index.asp?id=434&BranchIds=2&backflag=1
+http://www.sogo.com.tw/www/flippingbook/index.asp?id=742&BranchIds=8
 #
 # Han Shin
 http://www.hanshinarena.com.tw/DM/?m_id=69
