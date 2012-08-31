@@ -7,8 +7,8 @@ http://www.skm.com.tw/edm/str120/2012_0830_autumn/index.html
 http://www.sogo.com.tw/www/flippingbook/index.asp?id=742&BranchIds=8
 #
 # Han Shin
-http://www.hanshinarena.com.tw/DM/?m_id=69
-http://www.hanshin.com.tw/DM/?m_id=70
+http://www.hanshinarena.com.tw/DM/?m_id=95
+http://www.hanshin.com.tw/DM/?m_id=98
 #
 # PZ Peace
 http://www.pz-peace.com.tw/onsale.asp
@@ -17,13 +17,13 @@ http://www.pz-peace.com.tw/onsale.asp
 http://www.dream-mall.com.tw/ecatalog/newindex.asp
 #
 # Hankyu Kaohsiung
-http://www.uni-hankyu.com.tw/kaohsiung/onlineDM_1.asp?ID=000141
+http://www.uni-hankyu.com.tw/kaohsiung/onlineDM_1.asp?ID=000167
 #
 # Hankyu Taipei
-http://www.uni-hankyu.com.tw/taipei/upload/dm/dm_no10.html
+http://www.uni-hankyu.com.tw/taipei/upload/dm/no48/index.html
 #
 # FE21'
-http://www.feds.com.tw/ebook/index.asp?ParentSNo=592
+http://www.feds.com.tw/ebook/index.asp?ParentSNo=998
 #
 # City Super
-http://www.citysuper.com.tw/flippingBook/edmDisplay.asp?lgid=1&euid=801421E5-E642-4314-8924-D5EF0F3A1830
+http://www.citysuper.com.tw/flippingBook/edmDisplay.asp?lgid=1&euid=D4DECBFA-8023-49D8-8F44-0BFFE58C1AE5
