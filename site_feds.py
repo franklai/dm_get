@@ -9,10 +9,8 @@ test_url = 'http://www.feds.com.tw/store/dm.aspx?store=16&dm=20140731153420f55'
 
 def get_title(url, html):
     # use directory as part of title
-    title = u'feds '
-
     pattern = u'<title>([^<]*)</title>'
-    title += common.get_first_match(pattern, html)
+    title = common.get_first_match(pattern, html)
     logging.debug(title)
 
     return title.strip()
