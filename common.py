@@ -55,6 +55,9 @@ class DownloadFile(Thread):
 def download_jpgs(title, jpgs):
     cwd = os.getcwdu()
 
+    # need to check title
+    title = re.sub(r'([|/:\\])', '_', title)
+
     path_prefix = os.path.join(cwd, title)
 
     if not os.path.exists(path_prefix):
