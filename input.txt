@@ -1,7 +1,7 @@
 ## put dm link below, and run the program, you can get large jpeg file
 # Shin Kong Mitsukoshi
-http://www.skm.com.tw/edm/?st=str350&dm=20120824_AUTUMN
-http://www.skm.com.tw/edm/str120/2012_0830_autumn/index.html
+http://www.skm.com.tw/zh-TW/OnLineDM/Detail?CTID=5c930a1c-0f38-414a-b987-76fd6199ce1d&storeId=9e7f2731-ff3c-4d18-b872-ebb2660528f5
+
 #
 # SOGO
 http://www.sogo.com.tw/www/flippingbook/index.asp?id=742&BranchIds=8
