@@ -7,9 +7,9 @@ import urllib2
 import urlparse
 
 site_index = 'hankyu_kaohsiung'
-site_keyword = 'uni-hankyu.com.tw/kaohsiung'
-site_url = 'http://www.uni-hankyu.com.tw/'
-test_url = 'http://www.uni-hankyu.com.tw/kaohsiung/onlineDM_1.asp?ID=000141'
+site_keyword = 'www.dreamall.com.tw/uni-hankyu'
+site_url = 'http://www.dreamall.com.tw/uni-hankyu/'
+test_url = 'http://www.dreamall.com.tw/uni-hankyu/onlineDM_1.asp?ID=000215'
 
 def get_first_match(pattern, string):
     result = ''
@@ -55,7 +55,7 @@ def get_jpgs(url, html):
 
     # http://www.uni-hankyu.com.tw/maintain/Upload/DM/000085/P03.jpg
     # http://www.uni-hankyu.com.tw/kaohsiung/maintain/Upload/DM/000113/01.jpg
-    full_jpgs = [urlparse.urljoin(url, '/kaohsiung/maintain/%s' % (jpg,)) for jpg in jpgs]
+    full_jpgs = [urlparse.urljoin(url, 'maintain/%s' % (jpg,)) for jpg in jpgs]
     logging.debug('full_jpgs:' + repr(full_jpgs))
 
     return full_jpgs
@@ -111,7 +111,8 @@ def downloader(url):
     download_jpgs(title, jpgs)
 
 def main():
-    downloader(test_url)
+    url = test_url
+    downloader(url)
 
 
 if __name__ == '__main__':
