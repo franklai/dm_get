@@ -8,7 +8,7 @@ import common
 site_index = 'hankyu_taipei'
 site_keyword = 'uni-hankyu.com.tw/taipei'
 site_url = 'http://www.uni-hankyu.com.tw/taipei/'
-test_url = 'http://www.uni-hankyu.com.tw/taipei/upload/dm/no48/index.html'
+test_url = 'http://www.uni-hankyu.com.tw/taipei/upload/dm/no104/index.html'
 
 def get_charset(html):
     pattern = 'charset=([^"]+)'
@@ -21,7 +21,7 @@ def get_title_from_html(html):
     pattern = u'<title>([^<]*)</title>'
     prefix = common.get_first_match(pattern, html)
 
-    pattern = "var title = '([^']+)';"
+    pattern = "var title = *[\'\"]([^']+)[\'\"];"
     dmTitle = common.get_first_match(pattern, html)
 
     title = '%s - %s' % (prefix, dmTitle)
@@ -76,7 +76,8 @@ def downloader(url):
     common.download_jpgs(title, jpgs)
 
 def main():
-    downloader(test_url)
+    url = test_url
+    downloader(url)
 
 
 if __name__ == '__main__':
