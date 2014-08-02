@@ -67,7 +67,9 @@ def downloader(url):
     common.download_jpgs(title, jpgs)
 
 def main():
-    downloader(test_url)
+    url = test_url
+    url = 'http://citysuper.com.tw/flippingBook/edmDisplay.asp?lgid=1&euid=314E212A-22C4-419E-AEBF-74D862D5DBCC'
+    downloader(url)
 
 if __name__ == '__main__':
     logging.basicConfig(level=logging.DEBUG)

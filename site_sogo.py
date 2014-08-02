@@ -10,6 +10,7 @@ site_keyword = 'sogo'
 site_url = 'http://www.sogo.com.tw/'
 test_url = 'http://www.sogo.com.tw/www/flippingbook/index.asp?id=742&BranchIds=8'
 # test_url = 'http://www.sogo.com.tw/www/flippingbook/index2.asp?id=432&sp=&flag=&BranchIds=2'
+test_url = 'http://www.sogo.com.tw/www/flippingbook/index.asp?id=1547&BranchIds=1'
 
 
 def get_real_content_by_html(url, html):
@@ -85,7 +86,9 @@ def downloader(url):
     common.download_jpgs(title, jpgs)
 
 def main():
-    downloader(test_url)
+    url = test_url
+#     url = 'http://www.sogo.com.tw/www/flippingbook/index.asp?id=1547&BranchIds=1'
+    downloader(url)
 
 if __name__ == '__main__':
     logging.basicConfig(level=logging.DEBUG)

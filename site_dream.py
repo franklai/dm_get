@@ -101,7 +101,9 @@ def downloader(url):
     download_jpgs(title, jpgs)
 
 def main():
-    downloader(test_url)
+    url = test_url
+    url = 'http://www.dream-mall.com.tw/ecatalog/newindex.asp?num=1&pic=%2FEcatalog%2FEDM%2F140730%2Fzoom_page01.jpg&pic2=%2FEcatalog%2FEDM%2F140730%2Fnormal_page01.jpg'
+    downloader(url)
 
 
 if __name__ == '__main__':
