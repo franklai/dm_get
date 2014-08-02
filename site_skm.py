@@ -41,7 +41,7 @@ def get_title(url, html):
     store_title = get_title_by_value(store_id, html)
     dm_title = get_title_by_value(dm_id, html)
 
-    title = '%s - %s' % (store_title, dm_title)
+    title = '新光三越 %s - %s' % (store_title, dm_title)
 
     logging.debug('title = %s' % (title, ))
 
