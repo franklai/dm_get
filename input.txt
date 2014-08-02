@@ -1,14 +1,14 @@
 ## put dm link below, and run the program, you can get large jpeg file
 # Shin Kong Mitsukoshi
-http://www.skm.com.tw/zh-TW/OnLineDM/Detail?CTID=5c930a1c-0f38-414a-b987-76fd6199ce1d&storeId=9e7f2731-ff3c-4d18-b872-ebb2660528f5
+http://www.skm.com.tw/zh-TW/OnLineDM/Detail?CTID=e7f9a97b-bae5-4b4c-9630-1195f950da1c&storeId=7b5f7360-cdfd-4ef0-ab38-d522d5904316#1
 
 #
 # SOGO
-http://www.sogo.com.tw/www/flippingbook/index.asp?id=742&BranchIds=8
+http://www.sogo.com.tw/www/flippingbook/index.asp?id=1538&BranchIds=8
 #
 # Han Shin
-http://www.hanshinarena.com.tw/DM/?m_id=95
-http://www.hanshin.com.tw/DM/?m_id=98
+http://www.hanshinarena.com.tw/DM/?m_id=147
+http://www.hanshin.com.tw/DM/?m_id=164
 #
 # PZ Peace
 http://www.pz-peace.com.tw/onsale.asp
@@ -17,13 +17,13 @@ http://www.pz-peace.com.tw/onsale.asp
 http://www.dream-mall.com.tw/ecatalog/newindex.asp
 #
 # Hankyu Kaohsiung
-http://www.uni-hankyu.com.tw/kaohsiung/onlineDM_1.asp?ID=000167
+http://www.dreamall.com.tw/uni-hankyu/onlineDM_1.asp?ID=000215
 #
 # Hankyu Taipei
-http://www.uni-hankyu.com.tw/taipei/upload/dm/no48/index.html
+http://www.uni-hankyu.com.tw/taipei/upload/dm/no104/index.html
 #
 # FE21'
-http://www.feds.com.tw/ebook/index.asp?ParentSNo=998
+http://www.feds.com.tw/store/dm.aspx?store=16&dm=20140731153420f55
 #
 # City Super
-http://www.citysuper.com.tw/flippingBook/edmDisplay.asp?lgid=1&euid=D4DECBFA-8023-49D8-8F44-0BFFE58C1AE5
+http://citysuper.com.tw/flippingBook/edmDisplay.asp?lgid=1&euid=314E212A-22C4-419E-AEBF-74D862D5DBCC
