@@ -15,6 +15,7 @@ setup(
             "compressed": 1,
             "bundle_files": 1,
             "includes": dm_get.get_module_list(),
+            "packages": ['requests']
         }
     },
     zipfile = None,
