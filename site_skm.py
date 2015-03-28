@@ -9,7 +9,7 @@ site_keyword = 'skm'
 site_url = 'http://www.skm.com.tw/'
 # test_url = 'http://www.skm.com.tw/edm/str120/2012_0830_autumn/index.html'
 # test_url = 'http://www.skm.com.tw/edm/?st=str350&dm=20120824_AUTUMN'
-test_url = 'http://www.skm.com.tw/zh-TW/OnLineDM/Detail?CTID=25b8fd11-9504-443a-ab5f-02c88a5998ec&storeId=b5d3a2fc-b9fa-4486-a9ba-4acae9ed5f9c'
+test_url = 'http://www.skm.com.tw/zh-TW/OnLineDM/Detail?CTID=21f47f2f-df94-4045-beef-5e5f5c51cae0&storeId=9e7f2731-ff3c-4d18-b872-ebb2660528f5'
 
 def parse_query(url):
     o = urlparse.urlparse(url)
@@ -38,12 +38,12 @@ def get_title(url, html):
 
     logging.debug('id, store: %s, dm: %s' % (store_id, dm_id))
 
-    store_title = get_title_by_value(store_id, html)
-    dm_title = get_title_by_value(dm_id, html)
+    store_title = get_title_by_value(store_id, html).strip()
+    dm_title = get_title_by_value(dm_id, html).strip()
 
     title = u'新光三越 %s - %s' % (store_title, dm_title)
 
-    logging.debug('title = %s' % (title, ))
+    logging.debug('title = [%s]' % (title, ))
 
     return title
 
