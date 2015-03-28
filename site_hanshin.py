@@ -1,4 +1,5 @@
 import logging
+import re
 import urlparse
 
 import common
@@ -6,74 +7,65 @@ import common
 site_index = 'hanshin'
 site_keyword = 'hanshin'
 site_url = 'http://www.hanshinarena.com.tw/'
-# test_url = 'http://www.hanshinarena.com.tw/DM/?m_id=69'
-test_url = 'http://www.hanshin.com.tw/DM/?m_id=164'
+test_url = 'http://www.hanshinarena.com.tw/webc/html/dm/02.php?num=43&page=1'
 
-def get_id(url):
-    pattern = u'm_id=([0-9]+)'
-    id = common.get_first_match(pattern, url)
+def get_dm_num(qs):
+    obj = urlparse.parse_qs(qs)
+    return obj['num']
 
-    if id == '':
-        pattern = u'/DM/([0-9]+)'
-        id = common.get_first_match(pattern, url)
+def get_title(url):
+    # http://www.hanshinarena.com.tw/webc/html/dm/index.php
+    # http://www.hanshin.com.tw/webc/html/dm/index.php
+    # no title information on DM page, get title from index page
+    obj = urlparse.urlparse(url)
 
-    return id
+    index_page = '%s://%s/webc/html/dm/index.php' % (obj.scheme, obj.netloc)
+    logging.debug('index page url: %s' % (index_page))
 
-def get_title(url, id):
-    # http://www.hanshinarena.com.tw/DM/bottom.php
-    # http://www.hanshin.com.tw/DM/bottom.php
-    # get title from list
-    listUrl = urlparse.urljoin(url, '/DM/bottom.php')
-    logging.debug('bottom url: %s' % (listUrl))
-
-    html = common.get_content_by_url(listUrl)
+    html = common.get_content_by_url(index_page)
     html = html.decode('utf-8')
 
-    pattern = u'<title>([^<]+)</title>'
-    department = common.get_first_match(pattern, html)
-    logging.debug('department: %s' % (department.encode('big5')))
+    pattern = u'<meta name="description" Content="(.*)">'
+    store = common.get_first_match(pattern, html).strip()
 
-    pattern = u'option value="([0-9]+)" *>([^<]+)<'
-    titles = common.get_all_matched(pattern, html)
-    logging.debug('titles: %s' % (repr(titles)))
+    num = get_dm_num(obj.query)[0]
 
-    matchedTitle = ''
+    one_line = common.to_one_line(html)
 
-    for titleId, titleStr in titles:
-        if titleId == id:
-            matchedTitle = titleStr
-            break
+    pattern = u'<a href="02.php\?num=%s\&.*?">\s*<p class="title">([^<]+)</p>\s*<p class="date">([^<]+)</p>' % (num, )
+    logging.debug('pattern: %s' % (pattern))
 
-    if matchedTitle:
-        title = '%s - %s' % (department, matchedTitle)
+    regex = re.search(pattern, one_line)
+    if regex:
+        dm_title = regex.group(1)
+        dm_date = regex.group(2)
+
+        title = '%s - %s %s' % (store, dm_title, dm_date)
     else:
-        title = '%s %s' % (department, id)
+        title = u'%s - num %s' % (store, num)
+        
+    title = title.strip()
     logging.debug('title: %s' % (title.encode('big5')))
 
     return title
 
-def get_jpgs(url, id):
-    # get values from xml
-    # http://www.hanshinarena.com.tw/DM/39/Pages.xml
-    xmlUrl = urlparse.urljoin(url, '/DM/%s/Pages.xml' % (id))
-    logging.debug(xmlUrl)
-    xml = common.get_content_by_url(xmlUrl)
+def get_jpgs(url):
+    html = common.get_content_by_url(url)
 
-    pattern = u'<page src="([^"]+)"/>'
-    imgs = common.get_all_matched(pattern, xml)
+    pattern = '_lsrc="(.*?.jpg)"'
+    imgs = common.get_all_matched(pattern, html)
 
-    # http://www.hanshinarena.com.tw/DM/39/pages/4.jpg
-    full_imgs = [urlparse.urljoin(xmlUrl, img) for img in imgs]
+    # http://www.hanshinarena.com.tw/upload/photo/pic20150327_04162844.jpg
+    full_imgs = [urlparse.urljoin(url, img) for img in imgs]
 
     logging.debug('images: %s' % (repr(full_imgs)))
 
     return full_imgs
 
 def downloader(url):
-    id = get_id(url)
-    title = get_title(url, id)
+    title = get_title(url)
 
-    jpgs = get_jpgs(url, id)
+    jpgs = get_jpgs(url)
 
     common.download_jpgs(title, jpgs)
 
