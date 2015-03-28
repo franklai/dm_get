@@ -8,6 +8,9 @@ import urlparse
 
 import zlib
 
+def to_one_line(string):
+    return re.sub('[\r\n]', '', string)
+
 def get_first_match(pattern, string):
     result = ''
     
