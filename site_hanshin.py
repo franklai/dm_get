@@ -32,17 +32,11 @@ def get_title(url):
 
     one_line = common.to_one_line(html)
 
-    pattern = u'<a href="02.php\?num=%s\&.*?">\s*<p class="title">([^<]+)</p>\s*<p class="date">([^<]+)</p>' % (num, )
+    pattern = u'<a href="02.php\?num=%s\&.*?">\s*<p class="title">([^<]+)</p>' % (num, )
     logging.debug('pattern: %s' % (pattern))
 
-    regex = re.search(pattern, one_line)
-    if regex:
-        dm_title = regex.group(1)
-        dm_date = regex.group(2)
-
-        title = '%s - %s %s' % (store, dm_title, dm_date)
-    else:
-        title = u'%s - num %s' % (store, num)
+    dm_title = common.get_first_match(pattern, one_line)
+    title = '%s - %s' % (store, dm_title)
         
     title = title.strip()
     logging.debug('title: %s' % (title.encode('big5')))
@@ -71,7 +65,7 @@ def downloader(url):
 
 def main():
     url = test_url
-#     url = 'http://www.hanshinarena.com.tw/DM/?m_id=147'
+    url = 'http://www.hanshin.com.tw/webc/html/dm/02.php?num=33&page=1'
     downloader(url)
 
 if __name__ == '__main__':
