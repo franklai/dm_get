@@ -1,29 +1,28 @@
 ## put dm link below, and run the program, you can get large jpeg file
 # Shin Kong Mitsukoshi
-http://www.skm.com.tw/zh-TW/OnLineDM/Detail?CTID=e7f9a97b-bae5-4b4c-9630-1195f950da1c&storeId=7b5f7360-cdfd-4ef0-ab38-d522d5904316#1
+http://www.skm.com.tw/zh-TW/OnLineDM/Detail?CTID=21f47f2f-df94-4045-beef-5e5f5c51cae0&storeId=9e7f2731-ff3c-4d18-b872-ebb2660528f5#1
 
 #
 # SOGO
-http://www.sogo.com.tw/www/flippingbook/index.asp?id=1538&BranchIds=8
+http://www.sogo.com.tw/www/flippingbook/index.asp?id=1789&BranchIds=1
 #
 # Han Shin
-http://www.hanshinarena.com.tw/DM/?m_id=147
-http://www.hanshin.com.tw/DM/?m_id=164
+http://www.hanshinarena.com.tw/webc/html/dm/02.php?num=35&page=1
+http://www.hanshin.com.tw/webc/html/dm/02.php?num=33&page=1
 #
 # PZ Peace
 http://www.pz-peace.com.tw/onsale.asp
 #
 # Dream Mall
-http://www.dream-mall.com.tw/ecatalog/newindex.asp
-#
 # Hankyu Kaohsiung
-http://www.dreamall.com.tw/uni-hankyu/onlineDM_1.asp?ID=000215
+http://www.dream-mall.com.tw/
+
 #
 # Hankyu Taipei
 http://www.uni-hankyu.com.tw/taipei/upload/dm/no104/index.html
 #
 # FE21'
-http://www.feds.com.tw/store/dm.aspx?store=16&dm=20140731153420f55
+http://www.feds.com.tw/store/dm.aspx?store=16&dm=201503171046340e9
 #
 # City Super
-http://citysuper.com.tw/flippingBook/edmDisplay.asp?lgid=1&euid=314E212A-22C4-419E-AEBF-74D862D5DBCC
+http://www.citysuper.com.tw/flippingBook/edmDisplay.asp?lgid=1&euid=75E3B2F8-4DEC-4653-8423-019FAD48826A
