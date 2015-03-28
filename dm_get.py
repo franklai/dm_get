@@ -4,7 +4,7 @@ import logging
 
 sites = [
     'dream', 'feds', 
-    'hankyu_kaohsiung', 'hankyu_taipei', 
+    'hankyu_taipei', 
     'hanshin', 'pz', 'skm', 'sogo', 
     'citysuper',
 ]
