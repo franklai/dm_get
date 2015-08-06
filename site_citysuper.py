@@ -3,63 +3,51 @@ import logging
 import urlparse
 
 import common
+import requests
 
 site_index = 'citysuper'
 site_keyword = 'citysuper'
 site_url = 'http://www.citysuper.com.tw/'
-test_url = 'http://www.citysuper.com.tw/flippingBook/edmDisplay.asp?lgid=1&euid=801421E5-E642-4314-8924-D5EF0F3A1830'
+test_url = 'http://books.citysuper.com.tw/books/ygku/#p=1'
 
 def get_title(html):
-    pattern = 'flippingBook.settings.printTitle = "([^"]+)"'
+    pattern = 'og:description" content="([^"]+)"'
 
     title = common.get_first_match(pattern, html)
-    title = "city'super %s" % (title,)
+    title = title.replace('\\n', '').replace('\\', '')
 
     logging.debug('title: %s' % (title.encode('big5')))
 
     return title
 
-def get_pages(html):
-    prefix = 'flippingBook.pages'
+def get_pages(url):
+    config_url = urlparse.urljoin(url, 'javascript/config.js')
 
-    posStart = html.find(prefix)
-    if posStart == -1:
-        return []
+    r = requests.get(config_url)
+    r.encoding = 'utf-8'
 
-    posEnd = html.find(']', posStart)
-    if posEnd == -1:
-        return []
+    text = r.text
 
-    logging.debug('pages position %d:%d' % (posStart, posEnd, ))
-
-    pagesText = html[posStart:posEnd]
     pattern = "'([^']+\.jpg)'"
-    pages = common.get_all_matched(pattern, pagesText)
+    pattern = '"l":"(files[^"]+)"'
+    pages = common.get_all_matched(pattern, text)
     logging.debug('found pages: %s' % (', '.join(pages)))
 
     return pages
 
-def get_zoom_path(html):
-    pattern = 'flippingBook.settings.zoomPath = "([^"]+)"'
-    return common.get_first_match(pattern, html)
-
 def get_jpgs(url, html):
-    pages = get_pages(html)
-    zoomPath = get_zoom_path(html)
+    pages = get_pages(url)
 
-    imgs = [page[page.rfind('/') + 1:] for page in pages]
-    logging.debug('images: %s' % (', '.join(imgs)))
-
-    urlPrefix = urlparse.urljoin(url, zoomPath)
-    jpgs = [urlparse.urljoin(urlPrefix, img) for img in imgs] 
+    jpgs = [urlparse.urljoin(url, page) for page in pages] 
     logging.debug('full jpeg path: \n%s' % ('\n'.join(jpgs)))
 
     return jpgs
 
 
 def downloader(url):
-    html = common.get_content_by_url(url)
-    html = html.decode('utf-8')
+    r = requests.get(url)
+    r.encoding = 'utf-8'
+    html = r.text
 
     title = get_title(html)
     jpgs = get_jpgs(url, html)
@@ -68,7 +56,6 @@ def downloader(url):
 
 def main():
     url = test_url
-    url = 'http://citysuper.com.tw/flippingBook/edmDisplay.asp?lgid=1&euid=314E212A-22C4-419E-AEBF-74D862D5DBCC'
     downloader(url)
 
 if __name__ == '__main__':
