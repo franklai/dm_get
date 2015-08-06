@@ -89,9 +89,9 @@ def downloader(url):
             common.download_jpgs(title, jpgs)
 
     run_download() # for dreammall
-
-    parser.switch_to_hankyu()
-    run_download() # for hankyu kaohsiung
+# 
+#     parser.switch_to_hankyu()
+#     run_download() # for hankyu kaohsiung
 
 def main():
     url = test_url
