@@ -14,7 +14,7 @@ def get_title(html):
     pattern = 'og:description" content="([^"]+)"'
 
     title = common.get_first_match(pattern, html)
-    title = title.replace('\\n', '').replace('\\', '')
+    title = title.replace('\n', '').replace('\r', '').replace('\\', '')
 
     logging.debug('title: %s' % (title.encode('big5')))
 
