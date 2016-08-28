@@ -1,6 +1,6 @@
 ## put dm link below, and run the program, you can get large jpeg file
 # Shin Kong Mitsukoshi
-http://www.skm.com.tw/zh-TW/OnLineDM/Detail?CTID=27b73c04-3f17-4cf7-85ef-043a39002f50&storeId=9daa4b7d-1a00-4cb9-a429-8cb99050e88a
+http://www.skm.com.tw/zh-TW/OnLineDM/Detail?CTID=5b23384c-1bf4-4909-bba3-d1308d3955c6&storeId=4d6c8b25-f31a-4d83-b016-d97973648188
 #
 # SOGO
 http://www.sogo.com.tw/www/flippingbook/index.asp?id=2079&BranchIds=1
